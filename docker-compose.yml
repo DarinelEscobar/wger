@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  web:
+    image: wger/server:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./wger:/app
+    environment:
+      - DEBUG=True
