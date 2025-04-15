@@ -1,0 +1,23 @@
+app = "wger-darin2025"  # ← Puedes cambiar esto si ese nombre ya está en uso
+
+[build]
+  image = "wger/server:latest"
+
+[env]
+  DEBUG = "False"
+
+[[services]]
+  internal_port = 8000
+  protocol = "tcp"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [[services.tcp_checks]]
+    interval = 10000
+    timeout = 2000
